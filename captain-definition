@@ -1,7 +1,5 @@
 {
   "schemaVersion": 2,
   "dockerfilePath": "./Dockerfile",
-  "containerHttpPort": "7860",
-  "customNginxConfig": "location / { proxy_pass http://$$cap_appname:7860/; }",
   "dockerfileCommand": "--server_name 0.0.0.0 --server_port 7860"
 }
