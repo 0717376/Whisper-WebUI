@@ -4,11 +4,11 @@
   "containerHttpPort": "7860",
   "hostDirectories": [
     {
-      "hostPath": "$$cap_host_root/path/to/models",
+      "hostPath": "$$cap_host_root/home/user/models",
       "containerPath": "/Whisper-WebUI/models"
     },
     {
-      "hostPath": "$$cap_host_root/path/to/outputs",
+      "hostPath": "$$cap_host_root/home/user/outputs",
       "containerPath": "/Whisper-WebUI/outputs"
     }
   ],
