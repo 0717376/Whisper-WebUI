@@ -2,16 +2,6 @@
   "schemaVersion": 2,
   "dockerfilePath": "./Dockerfile",
   "containerHttpPort": "7860",
-  "hostDirectories": [
-    {
-      "hostPath": "$$cap_host_root/path/to/models",
-      "containerPath": "/Whisper-WebUI/models"
-    },
-    {
-      "hostPath": "$$cap_host_root/path/to/outputs",
-      "containerPath": "/Whisper-WebUI/outputs"
-    }
-  ],
   "customNginxConfig": "location / { proxy_pass http://$$cap_appname:7860/; }",
   "dockerfileCommand": "--server_name 0.0.0.0 --server_port 7860"
 }
