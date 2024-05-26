@@ -1,26 +1,24 @@
 {
   "schemaVersion": 2,
-  "dockerfilePath": "./Dockerfile",
-  "containerHttpPort": 7860,
-  "dockerRunArgs": "--gpus all",
-  "volumes": [
+  "dockerfileLines": [
+    "FROM whisper-webui:latest",
+    "EXPOSE 7860"
+  ],
+  "containerHttpPort": "7860",
+  "hostDirectories": [
     {
-      "containerPath": "/Whisper-WebUI/models",
-      "hostPath": "/path/to/models"
+      "hostPath": "/path/to/models",
+      "containerPath": "/Whisper-WebUI/models"
     },
     {
-      "containerPath": "/Whisper-WebUI/outputs",
-      "hostPath": "/path/to/outputs"
+      "hostPath": "/path/to/outputs",
+      "containerPath": "/Whisper-WebUI/outputs"
     }
   ],
-  "envVars": [
-    {
-      "key": "SERVER_NAME",
-      "value": "0.0.0.0"
-    },
-    {
-      "key": "SERVER_PORT",
-      "value": "7860"
-    }
-  ]
+  "customNginxConfig": "location / { proxy_pass http://$$cap_appname:7860/; }",
+  "containerEnvVars": {
+    "SERVER_NAME": "0.0.0.0",
+    "SERVER_PORT": "7860"
+  },
+  "dockerfileCommand": "--server_name 0.0.0.0 --server_port 7860"
 }
