@@ -1,7 +1,8 @@
 {
   "schemaVersion": 2,
   "dockerfilePath": "./Dockerfile",
-  "containerHttpPort": "7860",
+  "containerHttpPort": 7860,
+  "dockerRunArgs": "--gpus all",
   "volumes": [
     {
       "containerPath": "/Whisper-WebUI/models",
@@ -12,5 +13,14 @@
       "hostPath": "/path/to/outputs"
     }
   ],
-  "dockerRunArgs": "--gpus all"
+  "envVars": [
+    {
+      "key": "SERVER_NAME",
+      "value": "0.0.0.0"
+    },
+    {
+      "key": "SERVER_PORT",
+      "value": "7860"
+    }
+  ]
 }
