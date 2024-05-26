@@ -1,5 +1,16 @@
 {
   "schemaVersion": 2,
   "dockerfilePath": "./Dockerfile",
-  "containerHttpPort": "7860"
+  "containerHttpPort": "7860",
+  "volumes": [
+    {
+      "containerPath": "/Whisper-WebUI/models",
+      "hostPath": "/path/to/models"
+    },
+    {
+      "containerPath": "/Whisper-WebUI/outputs",
+      "hostPath": "/path/to/outputs"
+    }
+  ],
+  "dockerRunArgs": "--gpus all"
 }
