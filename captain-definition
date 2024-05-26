@@ -1,5 +1,6 @@
 {
   "schemaVersion": 2,
   "dockerfilePath": "./Dockerfile",
-  "dockerfileCommand": "--server_name 0.0.0.0 --server_port 7860"
+  "dockerfileCommand": "--server_name 0.0.0.0 --server_port 7860",
+  "containerHttpPort": "7860"
 }
